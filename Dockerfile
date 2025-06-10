@@ -17,12 +17,15 @@ USER root
 
 RUN useradd -ms /bin/bash appuser && mkdir -p /app && chown appuser:appuser /app
 
-COPY --from=build /app/target/spring-clients.jar /app/app.jar
+COPY --from=build /app/target/spring-clients-develop.jar /app/app.jar
 
 RUN chown appuser:appuser /app/app.jar
 
 USER appuser
 
-EXPOSE 8080
+EXPOSE 8081
 
 ENTRYPOINT ["java","-jar","/app/app.jar"]
+
+#docker build -t spring-clients-develop .
+#docker run --rm -it -p 8081:8081 --name spring-clients-develop-ctn -d spring-clients-develop
