@@ -26,3 +26,6 @@ USER appuser
 EXPOSE 8080
 
 ENTRYPOINT ["java","-jar","/app/app.jar"]
+
+#docker build -t spring-clients .
+#docker run --rm -it -p 8080:8080 --name spring-clients-ctn -d spring-clients

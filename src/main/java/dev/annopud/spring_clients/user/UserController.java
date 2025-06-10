@@ -1,5 +1,6 @@
 package dev.annopud.spring_clients.user;
 
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,18 +12,21 @@ import java.util.List;
 @RequestMapping("/users")
 public class UserController {
 
-    private final UserRestClient userRestClient;
-// Alternatively, you could use UserHttpClient instead of UserRestClient
-     private final UserHttpClient userHttpClient;
 
-    public UserController(UserRestClient userRestClient, UserHttpClient userHttpClient) {
+    private final UserRestClient userRestClient;
+    // Alternatively, you could use UserHttpClient instead of UserRestClient
+    private final UserHttpClient userHttpClient;
+    private final DiscoveryClient discoveryClient;
+
+    public UserController(UserRestClient userRestClient, UserHttpClient userHttpClient, DiscoveryClient discoveryClient) {
         this.userRestClient = userRestClient;
         this.userHttpClient = userHttpClient;
+        this.discoveryClient = discoveryClient;
     }
 
     @GetMapping("")
-    public List<User> findAll() {
-        return userRestClient.findAll();
+    public String findAll() {
+        return "List services by spring clients: " + String.join(", ", discoveryClient.getServices());
     }
 
     @GetMapping("/{id}")
