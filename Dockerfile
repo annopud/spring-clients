@@ -1,4 +1,4 @@
-FROM maven:3.9.9-eclipse-temurin-21-alpine AS build
+FROM maven:3.9.10-eclipse-temurin-21-alpine AS build
 
 ENV TZ=Asia/Bangkok
 
