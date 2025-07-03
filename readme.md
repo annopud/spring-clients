@@ -2,6 +2,8 @@ To support `org.owasp:dependency-check-maven`
 
 configure the NVD API key in your Maven `settings.xml` file and the plugin in your `pom.xml`.
 
+request [NVD_API_KEY](https://nvd.nist.gov/developers/request-an-api-key)
+
 `settings.xml`
 ```xml
 <settings>
