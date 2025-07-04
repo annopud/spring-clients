@@ -36,7 +36,7 @@ request [NVD_API_KEY](https://nvd.nist.gov/developers/request-an-api-key)
 </plugin>
 ```
 
-run mvn command to scan check
+run mvn command to scan
 ```bash
 mvn org.owasp:dependency-check-maven:check
 ```
