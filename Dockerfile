@@ -10,7 +10,7 @@ COPY . .
 
 RUN mvn clean package -Dmaven.test.skip=true
 
-FROM eclipse-temurin:21.0.7_6-jre-noble
+FROM eclipse-temurin:25.0.4_7-jre-noble
 ENV TZ=Asia/Bangkok
 
 USER root
